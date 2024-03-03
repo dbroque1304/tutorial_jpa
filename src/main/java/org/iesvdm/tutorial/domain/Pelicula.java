@@ -8,6 +8,9 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,7 +26,11 @@ public class Pelicula {
     private String titulo;
 
     @ManyToOne
-    //@JsonBackReference
     private Idioma idioma;
+    @ManyToMany(mappedBy = "peliculas")
+    Set<Actor> actores;
+
+    @ManyToMany(mappedBy = "peliculas", fetch = FetchType.EAGER)
+    private Set<Categoria> categorias;
 
 }

@@ -17,6 +17,6 @@ public class Tutorial {
     @EqualsAndHashCode.Include
     private long id;
     private String titulo;
-    @OneToMany( mappedBy = "tutorial", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany( mappedBy = "tutorial", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER )
     private Set<Comentario> comentarios;
 }
